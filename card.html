@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>For My Girlfriend — Card</title>
+  <style>
+    :root {
+      --bg1: #ffe6ff;
+      --bg2: #f7d1ff;
+      --accent: #b300ff;
+      --card-width: 720px;
+      --card-radius: 26px;
+      --glass: rgba(255, 255, 255, 0.6);
+    }
+
+    /* Full page layout */
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at 20% 10%, #fff0ff 0%, #ffd6ff 25%, #f5c2ff 100%);
+      padding: 32px;
+    }
+
+    /* subtle repeating flower pattern created with SVG data-uri */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      opacity: 0.25;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'><g fill='none' fill-rule='evenodd'><circle cx='60' cy='60' r='10' fill='%23FFD1E6' opacity='0.9'/><path d='M60 10c6 9 18 9 24 0 6 9 18 9 24 0v100H36V10c6 9 18 9 24 0z' fill='%23FFC1E0' opacity='0.6'/><g transform='translate(18 18)'><path d='M12 0c3 6 9 6 12 0 3 6 9 6 12 0V84H0V0c3 6 9 6 12 0z' fill='%23FFE6F2' opacity='0.4'/></g></g></svg>");
+      background-repeat: repeat;
+      transform: translateZ(0);
+      filter: blur(0.6px) saturate(1.05);
+      pointer-events: none;
+    }
+
+    /* Card */
+    .card {
+      position: relative;
+      z-index: 1;
+      width: calc(var(--card-width));
+      max-width: 95%;
+      border-radius: var(--card-radius);
+      padding: 36px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+      backdrop-filter: blur(6px);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 245, 250, 0.9));
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 24px;
+      align-items: center;
+    }
+
+    /* Left content */
+    .content {
+      padding: 12px
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin: 0 0 6px;
+      color: #6a0022
+    }
+
+    p.lead {
+      margin: 0 0 18px;
+      font-size: 1.05rem;
+      color: #4b0020
+    }
+
+    /* Heart badge */
+    .heart {
+      width: 95px;
+      height: 95px;
+      border-radius: 50%;
+      display: inline-grid;
+      place-items: center;
+      background: linear-gradient(135deg, #ff4dd2, #b300ff);
+      box-shadow: 0 10px 26px rgba(179, 0, 255, 0.35);
+      animation: float 2s ease-in-out infinite;
+    }
+
+    .heart {
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      display: inline-grid;
+      place-items: center;
+      background: linear-gradient(135deg, #ff4dd2, #b300ff);
+      box-shadow: 0 6px 18px rgba(255, 45, 134, 0.28);
+      transform: translateY(0);
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .heart svg {
+      width: 70px;
+      height: 70px;
+      filter: drop-shadow(0 10px 20px rgba(179, 0, 255, 0.28));
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0) scale(1)
+      }
+
+      50% {
+        transform: translateY(-14px) scale(1.18)
+      }
+
+      50% {
+        transform: translateY(-8px)
+      }
+    }
+
+    /* Right visual: card with flower + photo placeholder */
+    .visual {
+      background: linear-gradient(160deg, rgba(255, 240, 249, 0.95), rgba(255, 250, 246, 0.95));
+      border-radius: 18px;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
+      justify-content: center;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    }
+
+    .flower-plate {
+      width: 100%;
+      height: 220px;
+      border-radius: 12px;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#FFF0F6"/><stop offset="1" stop-color="#FFEFF8"/></linearGradient></defs><rect width="100%" height="100%" fill="url(%23g)"/><g transform="translate(40,20)"><circle cx="40" cy="40" r="18" fill="#FFD7EA" opacity="0.95"/><circle cx="80" cy="70" r="14" fill="#FFB9DA" opacity="0.9"/><path d="M120 20c6 10 18 10 24 0 6 10 18 10 24 0" stroke="#FF9BCF" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.9"/></g><g transform="translate(220,40)"><g transform="translate(0,0)" opacity="0.95"><circle cx="20" cy="30" r="14" fill="#FFE0F2"/><circle cx="52" cy="18" r="10" fill="#FFD1E8"/></g></g></svg>');
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      padding: 12px;
+      gap: 8px;
+      box-sizing: border-box;
+      position: relative;
+      overflow: hidden
+    }
+
+    .note {
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 10px;
+      padding: 8px 12px;
+      font-weight: 600;
+      backdrop-filter: blur(4px);
+    }
+
+    /* small personalization area */
+    .from {
+      font-size: 0.95rem;
+      color: #6a0030
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 6px
+    }
+
+    .btn {
+      border: 0;
+      padding: 8px 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 600
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, #ff6ea1, #ff2d86);
+      color: white
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border: 2px solid rgba(106, 0, 50, 0.06)
+    }
+
+    /* Responsive */
+    @media (max-width:760px) {
+      .card {
+        grid-template-columns: 1fr;
+        padding: 20px
+      }
+
+      .visual {
+        order: -1
+      }
+
+      .flower-plate {
+        height: 180px
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <div class="content">
+      <div class="heart-wrap">
+        <div class="heart" aria-hidden><span
+            style='position:absolute;left:-20px;top:-10px;font-size:22px;color:#ff66cc'>💖</span><span
+            style='position:absolute;right:-18px;bottom:-12px;font-size:20px;color:#d400ff'>💗</span>
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M12 21s-7.5-4.5-9.3-7.1C-0.4 9.6 4 4 7.7 6.2 9.6 7.5 12 10 12 10s2.4-2.5 4.3-3.8C20 4 24.4 9.6 21.3 13.9 19.5 16.5 12 21 12 21z"
+              fill="white" />
+          </svg>
+        </div>
+        <div>
+          <h1>For my ❤️</h1>
+          <p class="lead">Tum meri duniya ho — jitne rang phoolon mein hote hain, utne hi rang tum meri zindagi mein
+            bhar deti ho.</p>
+          <div class="btn-row">
+            <button class="btn btn-primary" onclick="heartPulse()">Send Love</button>
+            <button class="btn btn-ghost" onclick="customize()">Customize</button>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:18px">
+        <div class="from">— <strong id="sign">From, Rasmalai 💞</strong></div>
+      </div>
+    </div>
+
+    <div class="visual">
+      <div class="flower-plate">
+        <div class='sparkle' style='position:absolute;left:20%;top:20%;font-size:26px;opacity:0.9'>✨</div>
+        <div class='sparkle' style='position:absolute;right:18%;top:32%;font-size:22px;opacity:0.85'>✨</div>
+        <div class="note">A little garden of flowers, just for you 🌸</div>
+      </div>
+      <div style="width:100%;display:flex;justify-content:space-between;align-items:center;">
+        <div style="font-weight:700;color:#8b0040">Open when you need a smile</div>
+        <div style="opacity:0.9;font-size:0.9rem">💌</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function heartPulse() {
+      const h = document.querySelector('.heart');
+      h.animate([
+        { transform: 'scale(1)' },
+        { transform: 'scale(1.12)' },
+        { transform: 'scale(1)' }
+      ], { duration: 600, iterations: 1, easing: 'ease-in-out' });
+      // small confetti of hearts
+      for (let i = 0; i < 6; i++) {
+        const el = document.createElement('div');
+        el.textContent = '❤';
+        el.style.position = 'fixed'; el.style.left = (50 + Math.random() * 30) + '%'; el.style.top = (50 + Math.random() * 20) + '%';
+        el.style.fontSize = (12 + Math.random() * 18) + 'px'; el.style.opacity = 0.9; el.style.pointerEvents = 'none';
+        document.body.appendChild(el);
+        setTimeout(() => el.remove(), 900);
+      }
+    }
+    function customize() {
+      const name = prompt('Enter the name to sign (e.g. "Your Ashu")') || 'Your Ashu';
+      document.getElementById('sign').textContent = 'From, ' + name;
+    }
+  </script>
+</body>
+
+</html>
